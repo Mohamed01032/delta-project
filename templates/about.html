@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroScan — عن المشروع</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="scan-line"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <circle cx="20" cy="20" r="10" stroke="var(--accent)" stroke-width="1.5"/>
+          <circle cx="20" cy="20" r="3" fill="var(--accent)"/>
+          <line x1="20" y1="2" x2="20" y2="8" stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="20" y1="32" x2="20" y2="38" stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="2" y1="20" x2="8" y2="20" stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="32" y1="20" x2="38" y2="20" stroke="var(--accent)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-main">NeuroScan</span>
+        <span class="logo-sub">كشف الشلل الرعاش بالذكاء الاصطناعي</span>
+      </div>
+    </div>
+    <nav class="nav-pills">
+      <a href="index.html" class="nav-item">التشخيص</a>
+      <a href="how-it-works.html" class="nav-item">كيف يعمل؟</a>
+      <a href="about.html" class="nav-item active">عن المشروع</a>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        مشروع جامعي قابل لي التطوير
+      </div>
+      <h1 class="hero-title">
+        عن مشروع<br/>
+        <span class="gradient-text">NeuroScan</span>
+      </h1>
+      <p class="hero-desc">
+        مشروع جامعي يهدف لاستخدام الذكاء الاصطناعي في المجال الطبي<br/>
+        للمساعدة في الكشف المبكر عن مرض الشلل الرعاش
+      </p>
+    </section>
+
+    <!-- About Project -->
+    <section class="about-section">
+      <div class="about-card wide">
+        <div class="info-icon">🎯</div>
+        <h3>هدف المشروع</h3>
+        <p>
+          يهدف مشروع NeuroScan إلى تطوير نظام ذكاء اصطناعي قادر على المساعدة في
+          الكشف المبكر عن مرض الشلل الرعاش (Parkinson's Disease) من خلال تحليل
+          صور الأشعة الطبية للدماغ باستخدام تقنيات التعلم العميق.
+          الكشف المبكر عن المرض يُمكّن الأطباء من البدء في العلاج في مراحله الأولى،
+          مما يحسن جودة حياة المريض بشكل كبير.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-grid">
+      <div class="about-card">
+        <div class="info-icon">🔬</div>
+        <h3>عن المرض</h3>
+        <p>الشلل الرعاش مرض عصبي تنكسي مزمن يصيب الجهاز العصبي المركزي ويؤثر على الحركة. يُقدَّر أن أكثر من 10 مليون شخص حول العالم يعانون منه.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="info-icon">💡</div>
+        <h3>الفكرة</h3>
+        <p>الفكرة الأساسية هي تدريب نموذج تعلم آلي على مجموعة بيانات من صور أشعة المرضى والأصحاء، ليتعلم التمييز بين الحالتين تلقائياً.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="info-icon">🛠️</div>
+        <h3>التقنيات المستخدمة</h3>
+        <p>Python · TensorFlow / PyTorch · CNN Architecture · HTML + CSS + JavaScript للواجهة الأمامية · Flask / FastAPI للـ Backend.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="info-icon">⚠️</div>
+        <h3>تنبيه مهم</h3>
+        <p>هذا النظام مساعد تشخيصي فقط ولا يُغني بأي حال عن استشارة الطبيب المتخصص. النتائج للاسترشاد وليست تشخيصاً طبياً نهائياً.</p>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section">
+      <h2 class="section-title">فريق العمل</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Yousef mohamed magdy</div>
+          <div class="team-role">model developer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Ahmed Hamdi Ibrahim</div>
+          <div class="team-role">Backend Developer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Mohamed elseed fekry</div>
+          <div class="team-role">Frontend Developer</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Mohamed essam abdelsamie</div>
+          <div class="team-role">Data processing & collection</div>
+        </div>
+ 
+         <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Mohamed mahrous mohamed</div>
+          <div class="team-role">Testing & debugging</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍💻</div>
+          <div class="team-name">Magdy Yaser elbauomy</div>
+          <div class="team-role">backend Developer</div>
+        </div>
+    </div>
+      <div class="team-card">
+          <div class="team-avatar">👩‍🏫</div>
+          <div class="team-name">Dr. Reham Elsheikh</div>
+          <div class="team-role">المشرف الأكاديمي</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>مشروع دراسي قابل لي التطوير · <strong>كشف الشلل الرعاش بالذكاء الاصطناعي</strong></p>
+    <p class="footer-sub">للأغراض الأكاديمية فقط — جامعة ٢٠٢٥</p>
+  </footer>
+
+</body>
+</html>

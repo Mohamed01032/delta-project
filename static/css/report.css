@@ -1,0 +1,246 @@
+/* ============================================
+   NeuroScan — report.css (Printable Report)
+   ============================================ */
+
+:root {
+  --text: #1a2332;
+  --muted: #5a6a7e;
+  --border: #d8e2ef;
+  --accent: #0066cc;
+  --danger: #d63050;
+  --success: #00a854;
+  --warning: #e6a700;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.report-body {
+  font-family: 'Cairo', sans-serif;
+  background: #eef2f7;
+  color: var(--text);
+  direction: rtl;
+  line-height: 1.8;
+}
+
+.report-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px;
+  background: #1a2332;
+}
+
+.report-toolbar button {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-print {
+  background: linear-gradient(135deg, #0066cc, #00a8e8);
+  color: #fff;
+}
+
+.btn-close {
+  background: transparent;
+  border: 1px solid #5a6a7e !important;
+  color: #e8f0fe;
+}
+
+.report-page {
+  max-width: 800px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 48px;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+}
+
+.report-brand h1 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.report-brand p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.report-meta {
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.report-risk {
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 28px;
+  background: #fafbfc;
+}
+
+.risk-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid;
+  margin-bottom: 12px;
+}
+
+.report-risk h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.report-risk p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.report-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.stat-box {
+  background: #f4f7fb;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.stat-value.danger { color: var(--danger); }
+.stat-value.success { color: var(--success); }
+.stat-value.accent { color: var(--accent); }
+
+.report-image {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.report-image h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.report-image img {
+  max-width: 280px;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.report-section {
+  margin-bottom: 24px;
+  page-break-inside: avoid;
+}
+
+.report-section h3 {
+  font-size: 1.05rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.report-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.report-section li {
+  position: relative;
+  padding: 8px 20px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-bottom: 1px dashed #eef2f7;
+}
+
+.report-section li::before {
+  content: '•';
+  position: absolute;
+  right: 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.report-footer {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 2px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.report-footer-sub {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* === Print / PDF === */
+@media print {
+  body.report-body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .report-page {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .report-section {
+    page-break-inside: avoid;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-page { padding: 24px 16px; margin: 16px; }
+  .report-header { flex-direction: column; gap: 16px; }
+  .report-stats { grid-template-columns: repeat(2, 1fr); }
+}

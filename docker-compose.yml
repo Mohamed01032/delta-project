@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  neuroscan_web:
+    build: .
+    container_name: neuroscan_app
+    ports:
+      - "5000:5000"
+    volumes:
+      # ربط مسار المشروع الخارجي بالداخلي (اختياري، مفيد أثناء التطوير)
+      - ./:/app
+      # استثناء مجلد الرفع حتى لا تحدث مشاكل في الصلاحيات بين الحاوية ونظام الويندوز
+      - app_uploads:/app/static/uploads
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=development
+
+volumes:
+  app_uploads:

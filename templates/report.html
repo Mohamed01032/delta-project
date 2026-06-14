@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تقرير NeuroScan — {{ report.report_id }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}" />
+</head>
+<body class="report-body">
+
+  <div class="report-toolbar no-print">
+    <button onclick="window.print()" class="btn-print">🖨️ طباعة / حفظ PDF</button>
+    <button onclick="window.close()" class="btn-close">إغلاق</button>
+  </div>
+
+  <article class="report-page">
+
+    <header class="report-header">
+      <div class="report-brand">
+        <h1>NeuroScan</h1>
+        <p>تقرير تحليل الشلل الرعاش بالذكاء الاصطناعي</p>
+      </div>
+      <div class="report-meta">
+        <div><strong>رقم التقرير:</strong> {{ report.report_id }}</div>
+        <div><strong>التاريخ:</strong> {{ report.date }} — {{ report.time }}</div>
+        <div><strong>الملف:</strong> {{ report.filename }}</div>
+      </div>
+    </header>
+
+    <section class="report-risk" style="border-color: {{ report.risk_color }};">
+      <span class="risk-badge" style="background: {{ report.risk_color }}22; color: {{ report.risk_color }}; border-color: {{ report.risk_color }}55;">
+        {{ report.risk_badge }}
+      </span>
+      <h2>{{ report.risk_title }}</h2>
+      <p>{{ report.summary }}</p>
+    </section>
+
+    <section class="report-stats">
+      <div class="stat-box">
+        <span class="stat-label">احتمال الشلل الرعاش</span>
+        <span class="stat-value danger">{{ report.parkinson_pct }}%</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">احتمال طبيعي</span>
+        <span class="stat-value success">{{ report.normal_pct }}%</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">نسبة الثقة</span>
+        <span class="stat-value accent">{{ report.confidence_pct }}%</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">التصنيف</span>
+        <span class="stat-value">{{ report.pred_class }}</span>
+      </div>
+    </section>
+
+    {% if report.image_url %}
+    <section class="report-image">
+      <h3>صورة التحليل</h3>
+      <img src="{{ report.image_url }}" alt="صورة التحليل" />
+    </section>
+    {% endif %}
+
+    <section class="report-section">
+      <h3>📋 نصائح وإرشادات عامة</h3>
+      <ul>
+        {% for item in report.sections.advice %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="report-section">
+      <h3>🥗 التغذية والنظام الغذائي</h3>
+      <ul>
+        {% for item in report.sections.diet %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="report-section">
+      <h3>💊 العلاج والمتابعة الطبية</h3>
+      <ul>
+        {% for item in report.sections.treatment %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="report-section">
+      <h3>📅 خطة المتابعة</h3>
+      <ul>
+        {% for item in report.sections.followup %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <footer class="report-footer">
+      <p><strong>تنبيه مهم:</strong> هذا التقرير مُولَّد آلياً لأغراض مساعدة تشخيصية وتعليمية فقط. لا يُغني عن الفحص السريري أو التشخيص الطبي من قبل طبيب أعصاب مؤهل. لا تبدأ أو توقف أي علاج دون استشارة طبية.</p>
+      <p class="report-footer-sub">NeuroScan — مشروع تخرج · كشف الشلل الرعاش بالذكاء الاصطناعي · {{ report.date }}</p>
+    </footer>
+
+  </article>
+
+</body>
+</html>

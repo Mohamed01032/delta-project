@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+Flask
+werkzeug
+opencv-python-headless
+albumentations
+numpy
+torch
+torchvision
